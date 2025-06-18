@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Nest</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <script th:src="@{/js/home.js}" defer></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <h1 class="logo">📚 Book Nest</h1>
+      <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/book}">Books</a></li>
+        <li><a th:href="@{/library}">Library</a></li>
+
+        <!-- When NOT logged in -->
+        <li sec:authorize="!isAuthenticated()">
+          <a th:href="@{/login}" class="login">Login</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()">
+          <a th:href="@{/signup}" class="signup">Sign Up</a>
+        </li>
+
+        <!-- When logged in -->
+        <li sec:authorize="isAuthenticated()">
+          <a th:href="@{/account}">My Account</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+          <form th:action="@{/logout}" method="post" style="display: inline">
+            <button
+              type="submit"
+              class="logout"
+              style="
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: #fff;
+              "
+            >
+              Logout
+            </button>
+          </form>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="content">
+      <h1>Welcome to Book Nest</h1>
+      <p>Your one-stop destination for all your reading needs.</p>
+      <a th:href="@{/book}" class="explore-button">Explore Books</a>
+    </section>
+
+    <!-- Book Section -->
+    <section class="bookcontainer">
+      <div class="books">
+        <div class="book" th:each="book : ${books}">
+          <img th:src="@{/image/dev.png}" alt="Book Cover" />
+          <h3 th:text="${book.name}">Book Title</h3>
+          <p>Author: <span th:text="${book.author}">Author Name</span></p>
+          <div th:onclick="|location.href='/books/read/' + ${book.id}|">
+            Click me
+          </div>
+        </div>
+      </div>
+      <div class="view-all">
+        <a th:href="@{/book}" class="view-all-button">View All &gt;&gt;</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Book Nest. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

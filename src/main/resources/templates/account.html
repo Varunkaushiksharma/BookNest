@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account | Book Nest</title>
+    <link rel="stylesheet" th:href="@{/css/account.css}" />
+  </head>
+  <body>
+    <nav>
+      <h1 class="logo">📚 Book Nest</h1>
+      <ul>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/book}">Books</a></li>
+        <li><a th:href="@{/library}">Library</a></li>
+        <li>
+          <form th:action="@{/logout}" method="post" style="display: inline">
+            <button type="submit">Logout</button>
+          </form>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="account-container">
+      <div class="profile-card">
+        <h2>Welcome, <span th:text="${username}">User</span>!</h2>
+        <p>This is your personal account page.</p>
+        <ul class="details">
+          <li>
+            <strong>Username:</strong>
+            <span th:text="${username}">username</span>
+          </li>
+          <!-- Add more details like email, roles, etc., as needed -->
+        </ul>
+        <a class="button" th:href="@{/book}">Browse More Books</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Book Nest. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

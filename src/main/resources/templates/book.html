@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Nest - Books</title>
+    <link rel="stylesheet" th:href="@{/css/book.css}" />
+    <script th:src="@{/js/home.js}" defer></script>
+    <!-- For nav toggle -->
+  </head>
+  <body>
+    <!-- Navbar: EXACTLY as in home.html -->
+    <nav>
+      <h1 class="logo">📚 Book Nest</h1>
+      <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/books}">Books</a></li>
+        <li><a th:href="@{/library}">Library</a></li>
+        <li><a th:href="@{/login}" class="login">Login</a></li>
+        <li><a th:href="@{/signup}" class="signup">Sign Up</a></li>
+      </ul>
+    </nav>
+
+    <!-- Book List Section -->
+    <section class="bookcontainer">
+      <h2>All Books</h2>
+      <div class="books">
+        <div class="book" th:each="book : ${books}">
+          <img th:src="@{/image/dev.png}" alt="Book Cover" />
+          <h3 th:text="${book.name}">Book Name</h3>
+          <p>Author: <span th:text="${book.author}">Author Name</span></p>
+          <p class="summary" th:text="${book.summary}">
+            Book summary goes here...
+          </p>
+          <button
+            class="read"
+            th:onclick="|location.href='/books/read/' + ${book.id}|"
+          >
+            Read
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Book Nest. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>library</title>
+    <link rel="stylesheet" th:href="@{/css/library.css}" />
+  </head>
+  <body>
+    <nav>
+      <h1 class="logo">📚 Book Nest</h1>
+      <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul>
+        <li><a th:href="/home">Home</a></li>
+        <li><a th:href="/book">Books</a></li>
+        <li><a th:href="/library">Library</a></li>
+        <li><a th:href="/login" class="login">Login</a></li>
+        <li><a th:href="/signup" class="signup">Sign Up</a></li>
+      </ul>
+    </nav>
+
+    <section class="content">
+      <h1>Welcome to Your Library</h1>
+      <p>Your personal collection of books.</p>
+    </section>
+
+    <section class="bookcontainer">
+      <div class="books">
+        <!-- Books will be dynamically loaded here -->
+      </div>
+      <div class="view-all">
+        <a href="/book" class="view-all-button">View All &gt;&gt;</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Book Nest. All rights reserved.</p>
+    </footer>
+
+    <!-- Add your JavaScript files here -->
+  </body>
+</html>

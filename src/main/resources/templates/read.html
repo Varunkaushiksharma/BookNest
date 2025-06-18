@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title th:text="${book.name}">Book Title</title>
+    <link rel="stylesheet" th:href="@{/css/read.css}" />
+  </head>
+  <body>
+    <header>
+      <h1 th:text="${book.name}">Book Name</h1>
+      <p>by <span th:text="${book.author}">Author Name</span></p>
+    </header>
+
+    <main>
+      <article th:text="${book.summary}">Book content goes here...</article>
+    </main>
+
+    <footer>
+      <a th:href="@{/book}">← Back to Books</a>
+    </footer>
+  </body>
+</html>

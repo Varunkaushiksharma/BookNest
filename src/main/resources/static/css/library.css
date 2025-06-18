@@ -1,0 +1,132 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Navbar */
+nav {
+  background-color: #2d3436;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  color: #fdcb6e;
+}
+
+nav ul li .login {
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+nav ul li .signup {
+  background-color: #00cec9;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #000;
+  font-weight: bold;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* Welcome Content */
+.content {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #dfe6e9;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 1.2rem;
+  color: #636e72;
+}
+
+/* Book Container */
+.bookcontainer {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Example book card style - if added later */
+.books .book-card {
+  background-color: #fff;
+  border: 1px solid #dcdde1;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* View All Button */
+.view-all {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.view-all-button {
+  text-decoration: none;
+  background-color: #6c5ce7;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.view-all-button:hover {
+  background-color: #341f97;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #2d3436;
+  color: #fff;
+  margin-top: 3rem;
+}
